@@ -4,7 +4,9 @@
 set -e
 
 REPO_URL="https://github.com/jacob-bd/notebooklm-mcp-cli.git"
-REPO_DIR="notebooklm-mcp-cli"
+# 스크립트 위치를 기반으로 최상위 프로젝트 폴더 경로를 계산합니다.
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../.." && pwd)"
+REPO_DIR="$PROJECT_ROOT/notebooklm-mcp-cli"
 
 echo "NotebookLM MCP CLI 저장소 클론 및 설치를 시작합니다..."
 
@@ -35,8 +37,8 @@ fi
 
 # 1. 저장소 클론
 if [ ! -d "$REPO_DIR" ]; then
-  echo "✨ 저장소를 클론합니다: $REPO_URL"
-  git clone "$REPO_URL"
+  echo "✨ 저장소를 클론합니다: $REPO_URL -> $REPO_DIR"
+  git clone "$REPO_URL" "$REPO_DIR"
 else
   echo "✨ 저장소가 이미 존재합니다. 최신 버전으로 업데이트합니다."
   cd "$REPO_DIR"

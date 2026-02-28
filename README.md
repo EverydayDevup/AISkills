@@ -10,19 +10,9 @@
 
 ## 빠른 시작 (Quick Start)
 
-```bash
-# 1. 이 저장소 클론
-git clone https://github.com/EverydayDevup/AISkills.git
-cd AISkills
+이 저장소를 프로젝트 폴더에 클론한 후, AI Agent에서 아래 프롬프트를 입력하면 자동으로 설치가 진행됩니다.
 
-# 2. 원하는 스킬의 setup.sh 실행
-cd notebooklm-mcp-cli-setup/.agent/skills/notebooklm-mcp-cli-setup/scripts
-chmod +x setup.sh
-bash ./setup.sh
-
-# 3. 인증 완료
-nlm login
-```
+> 💬 **"노트북 lm을 설치해줘"**
 
 ## 제공되는 스킬 목록
 

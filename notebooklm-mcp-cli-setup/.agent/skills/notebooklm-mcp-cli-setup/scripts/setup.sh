@@ -66,4 +66,36 @@ for assistant in "${ASSISTANTS[@]}"; do
   yes | nlm skill install "$assistant" --level project || true
 done
 
+# 4. PATH 환경 변수 설정
+echo "🛠️  PATH 환경 변수에 uv 도구 경로를 추가합니다..."
+
+UV_TOOLS_BIN_DIR="$HOME/.local/share/uv/tools/bin"
+SHELL_NAME=$(basename "$SHELL")
+CONFIG_FILE=""
+
+if [ "$SHELL_NAME" = "zsh" ]; then
+  CONFIG_FILE="$HOME/.zshrc"
+elif [ "$SHELL_NAME" = "bash" ]; then
+  CONFIG_FILE="$HOME/.bashrc"
+else
+  echo "⚠️  지원되지 않는 쉘($SHELL_NAME)입니다. 수동으로 다음 경로를 PATH에 추가해주세요:"
+  echo "  $UV_TOOLS_BIN_DIR"
+fi
+
+if [ -n "$CONFIG_FILE" ] && [ -f "$CONFIG_FILE" ]; then
+  # 설정 파일에 이미 경로가 추가되었는지 확인
+  if ! grep -q "uv/tools/bin" "$CONFIG_FILE"; then
+    echo "✅ '$CONFIG_FILE'에 PATH를 추가합니다."
+    echo "" >> "$CONFIG_FILE"
+    echo "# uv-managed tools" >> "$CONFIG_FILE"
+    echo "export PATH=\"$UV_TOOLS_BIN_DIR:\$PATH\"" >> "$CONFIG_FILE"
+    echo "✨ PATH가 업데이트되었습니다. 터미널을 재시작하거나 'source $CONFIG_FILE'을 실행하여 적용해주세요."
+  else
+    echo "✅ PATH가 이미 '$CONFIG_FILE'에 설정되어 있습니다."
+  fi
+elif [ -n "$CONFIG_FILE" ]; then
+    echo "⚠️  설정 파일('$CONFIG_FILE')을 찾을 수 없습니다. 수동으로 PATH를 추가해주세요."
+    echo "  export PATH=\"$UV_TOOLS_BIN_DIR:\$PATH\""
+fi
+
 echo "✅ 모든 필수 및 선택적 설치 과정이 완료되었습니다!"

@@ -3,12 +3,6 @@
 .AppleDouble
 .LSOverride
 
-# AI 도구 개인 설정 및 세션 데이터 (인증 정보 포함 가능)
-.gemini/
-.claude/
-.cline/
-.openclaw/
-.opencode/
 
 # 에디터 설정
 .vscode/

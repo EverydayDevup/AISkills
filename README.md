@@ -3,9 +3,30 @@
 이 프로젝트는 다양한 AI 어시스턴트용 스킬과 도구를 관리하는 워크스페이스입니다.
 기본적으로 AI 프로젝트의 생산성을 높이기 위한 기술들을 제공합니다.
 
+## 사전 요구 사항 (Prerequisites)
+
+- [Git](https://git-scm.com/)
+- [uv](https://docs.astral.sh/uv/) (Python 패키지 매니저)
+
+## 빠른 시작 (Quick Start)
+
+```bash
+# 1. 이 저장소 클론
+git clone https://github.com/EverydayDevup/AISkills.git
+cd AISkills
+
+# 2. 원하는 스킬의 setup.sh 실행
+cd notebooklm-mcp-cli-setup/.agent/skills/notebooklm-mcp-cli-setup/scripts
+chmod +x setup.sh
+bash ./setup.sh
+
+# 3. 인증 완료
+nlm login
+```
+
 ## 제공되는 스킬 목록
 
-- **[notebooklm-mcp-cli-setup](./notebooklm-mcp-cli-setup/.agent/skills/notebooklm-mcp-cli-setup/SKILL.md)**: [PleasePrompto/notebooklm-mcp](https://github.com/PleasePrompto/notebooklm-mcp) 리포지토리를 연결하여 `notebooklm-mcp-cli`와 관련 AI 스킬을 설치하는 설정 스크립트를 실행하는 역할을 합니다.
+- **[notebooklm-mcp-cli-setup](./notebooklm-mcp-cli-setup/.agent/skills/notebooklm-mcp-cli-setup/SKILL.md)**: [jacob-bd/notebooklm-mcp-cli](https://github.com/jacob-bd/notebooklm-mcp-cli) 리포지토리를 연결하여 `notebooklm-mcp-cli`와 관련 AI 스킬을 설치하는 설정 스크립트를 실행하는 역할을 합니다.
 
 ## 스킬 관리 규칙
 

@@ -12,8 +12,12 @@ description: A skill to execute the setup script for cloning and installing the 
 
 ```bash
 # 실행 권한 부여 후 스크립트 터미널 실행
-chmod +x scripts/setup.sh
-bash ./scripts/setup.sh
+```bash
+# 모든 AI 에이전트 환경(Cline, Roo Code 등)에서 setup.sh 경로를 자동으로 찾아 실행 권한을 부여하고 실행합니다.
+SETUP_PATH=$(find . -path "*/notebooklm-mcp-cli-setup/scripts/setup.sh" | head -n 1)
+chmod +x "$SETUP_PATH"
+bash "$SETUP_PATH"
+```
 ```
 
 ## 2. 수동 설치 확인 (Installation Verification)
